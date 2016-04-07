@@ -26,6 +26,15 @@ namespace Assigment8.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            context.RoleClaims.AddOrUpdate(
+                r => r.Name,
+                new Models.RoleClaim { Name = "Executive" },
+                new Models.RoleClaim { Name = "Coordinador" },
+                new Models.RoleClaim { Name = "Clerk" },
+                new Models.RoleClaim { Name = "Staff" },
+                new Models.RoleClaim { Name = "Intern" },
+                new Models.RoleClaim { Name = "Viewer" }
+            );
         }
     }
 }
