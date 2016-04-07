@@ -30,7 +30,7 @@ namespace Assigment8
 
             // Add more conditions here as you need them
             if (code == 404) { this.HandleError("NotFound"); }
-            if (code >= 500) { this.HandleError("ServerError"); }
+            // if (code >= 500) { this.HandleError("ServerError"); }
         }
 
         private void HandleError(string action)
