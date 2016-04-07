@@ -20,6 +20,14 @@ namespace Assigment8.Models
     // Do NOT configure scalar properties (e.g. int, double) with the [Required] attribute
     // Initialize DateTime and collection properties in a default constructor
 
+    public class RoleClaim
+    {
+        public int Id { get; set; }
+
+        [Required, StringLength(100)]
+        public string Name { get; set; }
+    }
+
     public class Genre
     {
         public int Id { get; set; }
