@@ -55,6 +55,10 @@ namespace Assigment8.Controllers
 
 
 
+        public IEnumerable<string> RoleClaimGetAllStrings()
+        {
+            return ds.RoleClaims.Select(r => (string)r.Name).ToList();
+        }
 
 
         // Add some programmatically-generated objects to the data store
