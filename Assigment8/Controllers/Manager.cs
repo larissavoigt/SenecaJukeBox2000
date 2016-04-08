@@ -52,8 +52,10 @@ namespace Assigment8.Controllers
         // ProductEdit()
         // ProductDelete()
 
-
-
+        public IEnumerable<RoleClaimBase> RoleClaimGetAll()
+        {
+            return Mapper.Map<IEnumerable<RoleClaimBase>>(ds.RoleClaims.OrderBy(a => a.Name));
+        }
 
         public IEnumerable<string> RoleClaimGetAllStrings()
         {
