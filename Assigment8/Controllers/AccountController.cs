@@ -317,7 +317,7 @@ namespace Assigment8.Controllers
 
             // If we got this far, something failed, redisplay form
             var form = AutoMapper.Mapper.Map<RegisterViewModelForm>(model);
-            var roles = new List<string> { "RoleOne", "RoleTwo", "RoleThree" };
+            var roles = m.RoleClaimGetAllStrings();
             form.RoleList = new MultiSelectList(
                 items: roles,
                 selectedValues: model.Roles);
