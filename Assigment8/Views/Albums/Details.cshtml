@@ -1,0 +1,70 @@
+﻿@model Assigment8.Controllers.AlbumWithDetail
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<div class="page-header">
+    <div class='btn-toolbar pull-right'>
+        <div class='btn-group pull-right'>
+            @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    </div>
+    <h1>Album - @Model.Name</h1>
+</div>
+
+<div class="row">
+    
+    <div class="col-md-8">
+        
+        <dl class="dl-horizontal">
+            
+            <dt>
+                @Html.DisplayNameFor(model => model.Genre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Genre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ReleaseDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ReleaseDate)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Coordinator)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Coordinator)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Artists)
+            </dt>
+
+            <dd>
+                <ul class="list-unstyled">
+                    @foreach (var item in Model.Artists)
+                    {
+                        <li>@Html.ActionLink(item.Name, "Details", "Artists", new { id = item.Id }, null)</li>
+                    }
+                </ul>
+            </dd>
+
+        </dl>
+    </div>
+
+    <div class="col-md-4">
+        <div class="thumbnail">
+            <img src="@Model.UrlAlbum" />
+            <div class="caption text-center">
+                @Html.DisplayNameFor(model => model.UrlAlbum)
+            </div>
+        </div>
+    </div>
+    
+</div>

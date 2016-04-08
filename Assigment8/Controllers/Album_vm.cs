@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Assigment8.Controllers
 {
+
     public class AlbumBase
     {
         [Key]
@@ -31,4 +33,37 @@ namespace Assigment8.Controllers
         [Display(Name = "Album Cover")]
         public string UrlAlbum { get; set; }
     }
+
+
+    public class AlbumWithDetail : AlbumBase
+    {
+        public AlbumWithDetail()
+        {
+            Artists = new List<ArtistBase>();
+        }
+
+        [Display(Name = "Artists")]
+        public IEnumerable<ArtistBase> Artists { get; set; }
+    }
+
+
+    public class AlbumAdd : AlbumBase
+    {
+        public AlbumAdd()
+        {
+            ArtistIds = new List<int>();
+            TrackIds = new List<int>();
+        }
+
+        public IEnumerable<int> ArtistIds { get; set; }
+
+        public IEnumerable<int> TrackIds { get; set; }
+    }
+
+    public class AlbumAddForm : AlbumBase
+    {
+
+        public SelectList GenreList { get; set; }
+    }
+
 }

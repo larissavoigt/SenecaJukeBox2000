@@ -63,6 +63,13 @@ namespace Assigment8.Controllers
                 (ds.Artists.Include("Albums").OrderBy(a => a.Name));
         }
 
+        public ArtistBase ArtistGetById(int? id)
+        {
+            var o = ds.Artists.Find(id);
+            return (o == null) ? null : Mapper.Map<ArtistBase>(o);
+        }
+
+
         public ArtistWithDetail ArtistGetByIdWithDetail(int id)
         {
             var o = ds.Artists.Include("Albums").SingleOrDefault(e => e.Id == id);
@@ -75,6 +82,41 @@ namespace Assigment8.Controllers
             ds.SaveChanges();
 
             return (addedItem == null) ? null : Mapper.Map<ArtistBase>(addedItem);
+        }
+
+        public IEnumerable<AlbumWithDetail> AlbumGetAllWithDetail()
+        {
+            return Mapper.Map<IEnumerable<AlbumWithDetail>>
+                (ds.Albums.Include("Artists").Include("Tracks").OrderBy(a => a.Name));
+        }
+
+        public AlbumWithDetail AlbumGetByIdWithDetail(int id)
+        {
+            var o = ds.Albums.Include("Artists").Include("Tracks").SingleOrDefault(a => a.Id == id);
+            return (o == null) ? null : Mapper.Map<AlbumWithDetail>(o);
+        }
+
+        // Create a new album with artists
+        public AlbumWithDetail AlbumAdd(AlbumAdd newItem)
+        {
+
+            var o = ds.Albums.Add(Mapper.Map<Album>(newItem));
+
+            foreach (var item in newItem.ArtistIds)
+            {
+                var a = ds.Artists.Find(item);
+                o.Artists.Add(a);
+            }
+
+            foreach (var item in newItem.TrackIds)
+            {
+                var a = ds.Tracks.Find(item);
+                o.Tracks.Add(a);
+            }
+
+            ds.SaveChanges();
+
+            return (o == null) ? null : Mapper.Map<AlbumWithDetail>(o);
         }
 
         public IEnumerable<GenreBase> GenreGetAll()

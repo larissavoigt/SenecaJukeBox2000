@@ -29,6 +29,9 @@ namespace Assigment8
 
             // Albums
             Mapper.CreateMap<Models.Album, Controllers.AlbumBase>();
+            Mapper.CreateMap<Models.Album, Controllers.AlbumWithDetail>();
+            Mapper.CreateMap<Controllers.AlbumAdd, Models.Album>();
+            Mapper.CreateMap<Controllers.AlbumBase, Controllers.AlbumAddForm>();
 
             // Genres
             Mapper.CreateMap<Models.Genre, Controllers.GenreBase>();

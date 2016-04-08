@@ -173,6 +173,60 @@ namespace Assigment8.Migrations
             };
 
             artists.ForEach(a => context.Artists.AddOrUpdate(r => r.Name, a));
+
+            var albums = new List<Album> {
+                new Album
+                {
+                    Name = "The Fame",
+                    Genre = "Pop",
+                    UrlAlbum = "http://www.ladygaga.com/sites/g/files/g20001281/f/styles/300x300/public/201306/00602517891388.jpg?itok=S3SusKRe",
+                    ReleaseDate = new System.DateTime(2008, 8, 19)
+                },
+
+                new Album
+                {
+                    Name = "Hot Space",
+                    Genre = "Rock",
+                    UrlAlbum = "https://upload.wikimedia.org/wikipedia/en/3/3c/Queen_Hot_Space.png",
+                    ReleaseDate = new System.DateTime(1982, 5, 21)
+                },
+
+                new Album
+                {
+                    Name = "Falling into You",
+                    Genre = "Pop",
+                    UrlAlbum = "https://ukutabs.com/uploads/2012/09/Falling-Into-You.jpg",
+                    ReleaseDate = new System.DateTime(1996, 3, 8)
+                },
+
+                new Album
+                {
+                    Name = "Let's Talk About Love",
+                    Genre = "Pop",
+                    UrlAlbum = "https://ukutabs.com/uploads/2013/05/Lets-Talk-About-Love.jpg",
+                    ReleaseDate = new System.DateTime(1997, 11, 14)
+                },
+
+                new Album
+                {
+                    Name = "Pin Ups",
+                    Genre = "Rock",
+                    UrlAlbum = "https://upload.wikimedia.org/wikipedia/en/b/be/PinUps.jpg",
+                    ReleaseDate = new System.DateTime(1973, 10, 19)
+                },
+
+                new Album
+                {
+                    Name = "What's My Name?",
+                    Genre = "R&B",
+                    UrlAlbum = "http://music-video-buzz.com/wp-content/uploads/2011/03/rihanna-whats_my_name-feat-drake-fanmade1-500x500-300x300.png",
+                    ReleaseDate = new System.DateTime(2010, 10, 26)
+                },
+
+            };
+
+            albums.ForEach(a => a.Coordinator = coordinators[rnd.Next(coordinators.Count)]); // add random coordinator
+            albums.ForEach(a => context.Albums.AddOrUpdate(r => r.Name, a));
         }
 
         void AddOrUpdateUser(Assigment8.Models.ApplicationDbContext context, string email, List<string> roles)
