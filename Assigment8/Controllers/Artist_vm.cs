@@ -35,6 +35,10 @@ namespace Assigment8.Controllers
         [DataType(DataType.Url)]
         [Display(Name = "Artist Photo")]
         public string UrlArtist { get; set; }
+
+        [DataType(DataType.MultilineText)]
+        [Display(Name = "Artist Profile")]
+        public string Profile { get; set; }
     }
 
     public class ArtistAdd : ArtistBase
