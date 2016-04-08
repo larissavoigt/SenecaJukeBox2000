@@ -32,6 +32,10 @@ namespace Assigment8.Controllers
         [Required, StringLength(150)]
         [Display(Name = "Album Cover")]
         public string UrlAlbum { get; set; }
+
+        [DataType(DataType.MultilineText)]
+        [Display(Name = "Album Description")]
+        public string Description { get; set; }
     }
 
 
@@ -42,7 +46,7 @@ namespace Assigment8.Controllers
             Artists = new List<ArtistBase>();
         }
 
-        [Display(Name = "Artists")]
+        [Display(Name = "Artist")]
         public IEnumerable<ArtistBase> Artists { get; set; }
     }
 

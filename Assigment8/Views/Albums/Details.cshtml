@@ -55,6 +55,16 @@
                 </ul>
             </dd>
 
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                <div class="panel panel-default panel-body">
+                    @Html.Raw(Model.Description)
+                </div>
+            </dd>
+
         </dl>
     </div>
 

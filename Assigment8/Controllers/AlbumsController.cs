@@ -63,7 +63,7 @@ namespace Assigment8.Controllers
 
         // POST: Albums/Create
         [Authorize(Roles = "Coordinator")]
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult Create(AlbumAdd newItem)
         {
             newItem.Coordinator = HttpContext.User.Identity.Name;
