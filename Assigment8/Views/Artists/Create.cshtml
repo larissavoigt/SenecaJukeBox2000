@@ -4,6 +4,8 @@
     ViewBag.Title = "Add new Artist";
 }
 
+<script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
+
 <div class="page-header">
     <div class='btn-toolbar pull-right'>
         <div class='btn-group pull-right'>
@@ -68,6 +70,8 @@
                 @Html.ValidationMessageFor(model => model.Profile, "", new { @class = "text-danger" })
             </div>
         </div>
+
+        <script>CKEDITOR.replace('Profile');</script>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

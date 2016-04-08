@@ -22,6 +22,7 @@ namespace Assigment8
             Mapper.CreateMap<Models.RegisterViewModel, Models.RegisterViewModelForm>();
 
             // Artists 
+            Mapper.CreateMap<Models.Artist, Controllers.ArtistBase>();
             Mapper.CreateMap<Models.Artist, Controllers.ArtistWithDetail>();
             Mapper.CreateMap<Controllers.ArtistAdd, Models.Artist>();
             Mapper.CreateMap<Controllers.ArtistAddForm, Models.Artist>();

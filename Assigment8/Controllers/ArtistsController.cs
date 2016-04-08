@@ -32,7 +32,7 @@ namespace Assigment8.Controllers
         }
 
         // POST: Artists/Create
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         [Authorize(Roles = "Executive")]
         public ActionResult Create(ArtistAdd newItem)
         {
