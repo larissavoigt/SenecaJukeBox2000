@@ -21,11 +21,11 @@ namespace Assigment8
 
             Mapper.CreateMap<Models.RegisterViewModel, Models.RegisterViewModelForm>();
 
-            // Add more below...
+            // Artists 
+            Mapper.CreateMap<Models.Artist, Controllers.ArtistBase>();
 
-
-
-
+            // Albums
+            Mapper.CreateMap<Models.Album, Controllers.AlbumBase>();
 
 #pragma warning restore CS0618
         }
