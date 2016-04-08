@@ -63,6 +63,12 @@ namespace Assigment8.Controllers
                 (ds.Artists.Include("Albums").OrderBy(a => a.Name));
         }
 
+        public ArtistWithDetail ArtistGetByIdWithDetail(int id)
+        {
+            var o = ds.Artists.Include("Albums").SingleOrDefault(e => e.Id == id);
+            return (o == null) ? null : Mapper.Map<ArtistWithDetail>(o);
+        }
+
         public ArtistBase ArtistAdd(ArtistAdd newItem)
         {
             var addedItem = ds.Artists.Add(Mapper.Map<Artist>(newItem));

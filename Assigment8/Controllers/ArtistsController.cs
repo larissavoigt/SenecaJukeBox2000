@@ -17,6 +17,21 @@ namespace Assigment8.Controllers
             return View(artists);
         }
 
+        // GET: Artists/Details/5
+        public ActionResult Details(int? id)
+        {
+            var o = m.ArtistGetByIdWithDetail(id.GetValueOrDefault());
+
+            if (o == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                return View(o);
+            }
+        }
+
         // GET: Artists/Create
         [Authorize(Roles = "Executive")]
         public ActionResult Create()

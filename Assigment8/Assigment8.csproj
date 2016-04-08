@@ -267,6 +267,7 @@
     <Content Include="Views\Errors\ServerError.cshtml" />
     <Content Include="Views\Artists\Index.cshtml" />
     <Content Include="Views\Artists\Create.cshtml" />
+    <Content Include="Views\Artists\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
