@@ -227,7 +227,31 @@ namespace Assigment8.Migrations
 
             albums.ForEach(a => a.Coordinator = coordinators[rnd.Next(coordinators.Count)]); // add random coordinator
             albums.ForEach(a => context.Albums.AddOrUpdate(r => r.Name, a));
+
+            context.SaveChanges();
+
+            // Artists - Albums association
+            AddOrUpdateArtistAlbums(context, "Lady Gaga", "The Fame");
+            AddOrUpdateArtistAlbums(context, "Queen", "Hot Space");
+            AddOrUpdateArtistAlbums(context, "David Bowie", "Hot Space");
+            AddOrUpdateArtistAlbums(context, "Celine Dion", "Falling into You");
+            AddOrUpdateArtistAlbums(context, "Celine Dion", "Let's Talk About Love");
+            AddOrUpdateArtistAlbums(context, "David Bowie", "Pin Ups");
+            AddOrUpdateArtistAlbums(context, "Rihanna", "What's My Name?");
+            AddOrUpdateArtistAlbums(context, "Drake", "What's My Name?");
         }
+
+        void AddOrUpdateArtistAlbums(Assigment8.Models.ApplicationDbContext context, string artistName, string albumName)
+        {
+            var artist = context.Artists.SingleOrDefault(a => a.Name == artistName);
+            var album = artist.Albums.SingleOrDefault(a => a.Name == albumName);
+            if (album == null)
+            {
+                artist.Albums.Add(context.Albums.Single(a => a.Name == albumName));
+            }
+
+        }
+
 
         void AddOrUpdateUser(Assigment8.Models.ApplicationDbContext context, string email, List<string> roles)
         {
