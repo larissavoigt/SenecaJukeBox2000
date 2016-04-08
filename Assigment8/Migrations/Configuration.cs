@@ -13,7 +13,7 @@ namespace Assigment8.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Assigment8.Models.ApplicationDbContext context)
