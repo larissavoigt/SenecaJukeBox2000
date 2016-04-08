@@ -13,9 +13,11 @@ using System.Collections.Generic;
 
 namespace Assigment8.Controllers
 {
+
     [Authorize]
     public class AccountController : Controller
     {
+        private Manager m = new Manager();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -254,7 +256,7 @@ namespace Assigment8.Controllers
             // Define your custom role claims here
             // However, in a real-world in-production app, you would likely maintain
             //   a valid list of custom claims in persistent storage somewhere
-            var roles = new List<string> { "RoleOne", "RoleTwo", "RoleThree" };
+            var roles = m.RoleClaimGetAllStrings();
 
             // Define a register form
             var form = new RegisterViewModelForm();
