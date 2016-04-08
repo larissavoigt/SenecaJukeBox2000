@@ -180,7 +180,6 @@
     <Compile Include="Controllers\CustomAuthorizeAttributes.cs" />
     <Compile Include="Controllers\ErrorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LoadDataController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\Manager.cs" />
     <Compile Include="Controllers\RoleClaim_vm.cs" />
