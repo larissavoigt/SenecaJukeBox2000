@@ -71,6 +71,8 @@ namespace Assigment8.Models
         [Required, StringLength(200)]
         public string Executive { get; set; }
 
+        public string Profile { get; set; }
+
         public ICollection<Album> Albums { get; set; }
     }
 
@@ -100,6 +102,8 @@ namespace Assigment8.Models
         // User name who looks after the album
         [Required, StringLength(200)]
         public string Coordinator { get; set; }
+
+        public string Description { get; set; }
 
         public ICollection<Artist> Artists { get; set; }
 
