@@ -52,16 +52,21 @@ namespace Assigment8.Controllers
         // ProductEdit()
         // ProductDelete()
 
-        public IEnumerable<RoleClaimBase> RoleClaimGetAll()
-        {
-            return Mapper.Map<IEnumerable<RoleClaimBase>>(ds.RoleClaims.OrderBy(a => a.Name));
-        }
-
         public IEnumerable<string> RoleClaimGetAllStrings()
         {
             return ds.RoleClaims.Select(r => (string)r.Name).ToList();
         }
 
+        public IEnumerable<ArtistBase> ArtistGetAll()
+        {
+            return Mapper.Map<IEnumerable<ArtistBase>>(ds.Artists.OrderBy(a => a.Name));
+        }
+
+        public IEnumerable<ArtistWithDetail> ArtistGetAllWithDetail()
+        {
+            return Mapper.Map<IEnumerable<ArtistWithDetail>>
+                (ds.Artists.Include("Albums").OrderBy(a => a.Name));
+        }
 
         // Add some programmatically-generated objects to the data store
         // Can write one method, or many methods - your decision

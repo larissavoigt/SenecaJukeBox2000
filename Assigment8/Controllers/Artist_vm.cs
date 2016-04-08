@@ -35,4 +35,15 @@ namespace Assigment8.Controllers
         [Display(Name = "Artist Photo")]
         public string UrlArtist { get; set; }
     }
+
+    public class ArtistWithDetail : ArtistBase
+    {
+        public ArtistWithDetail()
+        {
+            Albums = new List<AlbumBase>();
+        }
+
+        [Display(Name = "List of Albums")]
+        public ICollection<AlbumBase> Albums { get; set; }
+    }
 }
