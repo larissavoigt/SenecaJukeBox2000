@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Assigment8.Controllers
 {
@@ -34,6 +35,16 @@ namespace Assigment8.Controllers
         [DataType(DataType.Url)]
         [Display(Name = "Artist Photo")]
         public string UrlArtist { get; set; }
+    }
+
+    public class ArtistAdd : ArtistBase
+    {
+
+    }
+
+    public class ArtistAddForm : ArtistBase
+    {
+        public SelectList GenreList { get; set; }
     }
 
     public class ArtistWithDetail : ArtistBase

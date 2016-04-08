@@ -179,6 +179,7 @@
     <Compile Include="Controllers\Artist_vm.cs" />
     <Compile Include="Controllers\CustomAuthorizeAttributes.cs" />
     <Compile Include="Controllers\ErrorsController.cs" />
+    <Compile Include="Controllers\Genre_vm.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\Manager.cs" />

@@ -23,9 +23,14 @@ namespace Assigment8
 
             // Artists 
             Mapper.CreateMap<Models.Artist, Controllers.ArtistWithDetail>();
+            Mapper.CreateMap<Controllers.ArtistAdd, Models.Artist>();
+            Mapper.CreateMap<Controllers.ArtistAddForm, Models.Artist>();
 
             // Albums
             Mapper.CreateMap<Models.Album, Controllers.AlbumBase>();
+
+            // Genres
+            Mapper.CreateMap<Models.Genre, Controllers.GenreBase>();
 
 #pragma warning restore CS0618
         }

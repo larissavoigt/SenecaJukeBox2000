@@ -63,10 +63,18 @@ namespace Assigment8.Controllers
                 (ds.Artists.Include("Albums").OrderBy(a => a.Name));
         }
 
-        // Add some programmatically-generated objects to the data store
-        // Can write one method, or many methods - your decision
-        // The important idea is that you check for existing data first
-        // Call this method from a controller action/method
+        public ArtistBase ArtistAdd(ArtistAdd newItem)
+        {
+            var addedItem = ds.Artists.Add(Mapper.Map<Artist>(newItem));
+            ds.SaveChanges();
+
+            return (addedItem == null) ? null : Mapper.Map<ArtistBase>(addedItem);
+        }
+
+        public IEnumerable<GenreBase> GenreGetAll()
+        {
+            return Mapper.Map<IEnumerable<GenreBase>>(ds.Genres.OrderBy(a => a.Name));
+        }
 
     }
 
