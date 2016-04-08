@@ -350,12 +350,12 @@ namespace Assigment8.Controllers
                 Name = user.Identity.Name;
 
                 // Extract the given name(s); if null or empty, then set an initial value
-                string gn = user.Claims.SingleOrDefault(c => c.Type == ClaimTypes.GivenName).Value;
+                string gn = user.Claims.Where(c => c.Type == ClaimTypes.GivenName).Select(c =>c.Value).SingleOrDefault();
                 if (string.IsNullOrEmpty(gn)) { gn = "(empty given name)"; }
                 GivenName = gn;
 
                 // Extract the surname; if null or empty, then set an initial value
-                string sn = user.Claims.SingleOrDefault(c => c.Type == ClaimTypes.Surname).Value;
+                string sn = user.Claims.Where(c => c.Type == ClaimTypes.Surname).Select(c =>c.Value).SingleOrDefault();
                 if (string.IsNullOrEmpty(sn)) { sn = "(empty surname)"; }
                 Surname = sn;
 
