@@ -57,11 +57,6 @@ namespace Assigment8.Controllers
             return ds.RoleClaims.Select(r => (string)r.Name).ToList();
         }
 
-        public IEnumerable<ArtistBase> ArtistGetAll()
-        {
-            return Mapper.Map<IEnumerable<ArtistBase>>(ds.Artists.OrderBy(a => a.Name));
-        }
-
         public IEnumerable<ArtistWithDetail> ArtistGetAllWithDetail()
         {
             return Mapper.Map<IEnumerable<ArtistWithDetail>>

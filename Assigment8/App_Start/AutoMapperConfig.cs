@@ -22,7 +22,7 @@ namespace Assigment8
             Mapper.CreateMap<Models.RegisterViewModel, Models.RegisterViewModelForm>();
 
             // Artists 
-            Mapper.CreateMap<Models.Artist, Controllers.ArtistBase>();
+            Mapper.CreateMap<Models.Artist, Controllers.ArtistWithDetail>();
 
             // Albums
             Mapper.CreateMap<Models.Album, Controllers.AlbumBase>();
