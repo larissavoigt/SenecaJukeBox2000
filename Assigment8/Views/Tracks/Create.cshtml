@@ -10,7 +10,7 @@
             @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
         </div>
     </div>
-    <h1>Add new Track</h1>
+    <h1>Add Track for album @ViewBag.AlbumName</h1>
 </div>
 
 
@@ -44,6 +44,8 @@
                 @Html.ValidationMessageFor(model => model.Genre, "", new { @class = "text-danger" })
             </div>
         </div>
+
+        <input type="hidden" name="AlbumIds" value="@ViewBag.AlbumId" />
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

@@ -69,7 +69,6 @@ namespace Assigment8.Controllers
             return (o == null) ? null : Mapper.Map<ArtistBase>(o);
         }
 
-
         public ArtistWithDetail ArtistGetByIdWithDetail(int id)
         {
             var o = ds.Artists.Include("Albums").SingleOrDefault(e => e.Id == id);
@@ -82,6 +81,12 @@ namespace Assigment8.Controllers
             ds.SaveChanges();
 
             return (addedItem == null) ? null : Mapper.Map<ArtistBase>(addedItem);
+        }
+
+        public AlbumBase AlbumGetById(int? id)
+        {
+            var o = ds.Albums.Find(id);
+            return (o == null) ? null : Mapper.Map<AlbumBase>(o);
         }
 
         public IEnumerable<AlbumWithDetail> AlbumGetAllWithDetail()
@@ -137,9 +142,17 @@ namespace Assigment8.Controllers
 
         public TrackBase TrackAdd(TrackAdd newItem)
         {
-            var addedItem = ds.Tracks.Add(Mapper.Map<Track>(newItem));
+            var o = ds.Tracks.Add(Mapper.Map<Track>(newItem));
+
+            foreach (var item in newItem.AlbumIds)
+            {
+                var a = ds.Albums.Find(item);
+                o.Albums.Add(a);
+            }
+
             ds.SaveChanges();
-            return (addedItem == null) ? null : Mapper.Map<TrackBase>(addedItem);
+
+            return (o == null) ? null : Mapper.Map<TrackWithDetail>(o);
         }
 
         public IEnumerable<TrackWithDetail> TrackGetAllWithDetail()

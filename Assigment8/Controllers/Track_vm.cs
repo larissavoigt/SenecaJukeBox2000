@@ -21,6 +21,8 @@ namespace Assigment8.Controllers
 
         [Required]
         public string Genre { get; set; }
+
+        public IEnumerable<int> AlbumIds { get; set; }
     }
 
     public class TrackBase : TrackAdd

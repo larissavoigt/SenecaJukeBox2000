@@ -33,16 +33,29 @@ namespace Assigment8.Controllers
 
         // GET: Tracks/Create
         [Authorize(Roles = "Clerk")]
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            var form = new TrackAddForm();
+            // Attempt to fetch the matching object
+            var a = m.AlbumGetById(id.GetValueOrDefault());
 
-            form.GenreList = new SelectList
-                    (items: m.GenreGetAll(),
-                    dataValueField: "Name",
-                    dataTextField: "Name");
+            if (a == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                ViewBag.AlbumName = a.Name;
+                ViewBag.AlbumId = a.Id;
 
-            return View(form);
+                var form = new TrackAddForm();
+
+                form.GenreList = new SelectList
+                        (items: m.GenreGetAll(),
+                        dataValueField: "Name",
+                        dataTextField: "Name");
+
+                return View(form);
+            }
         }
 
         // POST: Tracks/Create

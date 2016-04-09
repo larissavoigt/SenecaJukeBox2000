@@ -49,7 +49,6 @@ namespace Assigment8.Controllers
                 ViewBag.ArtistId = a.Id;
 
                 var form = new AlbumAddForm();
-                var artistsSelected = new List<int> { a.Id };
 
                 form.GenreList = new SelectList
                     (items: m.GenreGetAll(),
