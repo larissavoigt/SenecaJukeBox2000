@@ -48,7 +48,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ClipUpload, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(m => m.ClipUpload, new { type = "file", name = "Files" })
+                @Html.TextBoxFor(m => m.ClipUpload, new { @class="form-control", type = "file", name = "Files" })
                 @Html.ValidationMessageFor(model => model.ClipUpload, "", new { @class = "text-danger" })
             </div>
         </div>

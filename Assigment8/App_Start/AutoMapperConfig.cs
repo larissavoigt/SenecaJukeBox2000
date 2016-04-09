@@ -43,6 +43,10 @@ namespace Assigment8
             Mapper.CreateMap<Models.Track, Controllers.TrackWithDetail>();
             Mapper.CreateMap<Models.Track, Controllers.TrackClip>();
 
+            // Media Items
+            Mapper.CreateMap<Models.MediaItem, Controllers.MediaItemBase>();
+            Mapper.CreateMap<Models.MediaItem, Controllers.MediaItemContent>();
+
 #pragma warning restore CS0618
         }
     }

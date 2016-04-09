@@ -56,9 +56,12 @@ namespace Assigment8.Controllers
         public ArtistWithDetail()
         {
             Albums = new List<AlbumBase>();
+            MediaItems = new List<MediaItemContent>();
         }
 
         [Display(Name = "List of Albums")]
         public ICollection<AlbumBase> Albums { get; set; }
+
+        public IEnumerable<MediaItemContent> MediaItems { get; set; }
     }
 }

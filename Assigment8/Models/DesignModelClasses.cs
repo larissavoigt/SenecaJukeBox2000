@@ -74,6 +74,8 @@ namespace Assigment8.Models
         public string Profile { get; set; }
 
         public ICollection<Album> Albums { get; set; }
+
+        public ICollection<MediaItem> MediaItems { get; set; }
     }
 
     public class Album
@@ -139,6 +141,45 @@ namespace Assigment8.Models
         public byte[] Clip { get; set; }
         [StringLength(200)]
         public string ClipContentType { get; set; }
+    }
+
+    public class MediaItem
+    {
+        public MediaItem()
+        {
+            Timestamp = DateTime.Now;
+
+            // StringId generator
+            // Code is from Mads Kristensen
+            // http://madskristensen.net/post/generate-unique-strings-and-numbers-in-c
+
+            long i = 1;
+            foreach (byte b in Guid.NewGuid().ToByteArray())
+            {
+                i *= ((int)b + 1);
+            }
+            StringId = string.Format("{0:x}", i - DateTime.Now.Ticks);
+        }
+
+        public int Id { get; set; }
+
+        public DateTime Timestamp { get; set; }
+
+        // For the generated identifier
+        [Required, StringLength(100)]
+        public string StringId { get; set; }
+
+        // Media item
+        public byte[] Content { get; set; }
+        [StringLength(200)]
+        public string ContentType { get; set; }
+
+        // Brief descriptive caption
+        [Required, StringLength(100)]
+        public string Caption { get; set; }
+
+        [Required]
+        public Artist Artist { get; set; }
     }
 
 }

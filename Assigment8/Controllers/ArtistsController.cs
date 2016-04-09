@@ -71,5 +71,54 @@ namespace Assigment8.Controllers
             }
         }
 
+        // GET: Artists/5/AddMediaItem
+        [Route("artists/{id}/addmediaitem")]
+        public ActionResult AddMediaItem(int? id)
+        {
+            // Attempt to get the matching object
+            var o = m.ArtistGetById(id.GetValueOrDefault());
+
+            if (o == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                // Create a form
+                var form = new MediaItemAddForm();
+                // Configure its property values
+                form.ArtistId = o.Id;
+                form.ArtistInfo = $"{o.Name}";
+
+                // Pass the object to the view
+                return View(form);
+            }
+        }
+
+        // POST: Artists/5/AddMediaItem
+        [HttpPost]
+        [Route("artists/{id}/addmediaitem")]
+        public ActionResult AddMediaItem(int? id, MediaItemAdd newItem)
+        {
+            // Validate the input
+            // Two conditions must be checked
+            if (!ModelState.IsValid && id.GetValueOrDefault() == newItem.ArtistId)
+            {
+                return View(newItem);
+            }
+
+            // Process the input
+            var addedItem = m.ArtistMediaItemAdd(newItem);
+
+            if (addedItem == null)
+            {
+                return View(newItem);
+            }
+            else
+            {
+                return RedirectToAction("Details", new { id = addedItem.Id });
+            }
+        }
+
     }
 }

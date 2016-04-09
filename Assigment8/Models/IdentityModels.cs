@@ -33,6 +33,7 @@ namespace Assigment8.Models
         public DbSet<Album> Albums { get; set; }
         public DbSet<Track> Tracks { get; set; }
         public DbSet<RoleClaim> RoleClaims { get; set; }
+        public DbSet<MediaItem> MediaItems { get; set; }
 
 
         // Turn OFF cascade delete, which is (unfortunately) the default setting

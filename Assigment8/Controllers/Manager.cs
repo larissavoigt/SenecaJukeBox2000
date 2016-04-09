@@ -71,7 +71,7 @@ namespace Assigment8.Controllers
 
         public ArtistWithDetail ArtistGetByIdWithDetail(int id)
         {
-            var o = ds.Artists.Include("Albums").SingleOrDefault(e => e.Id == id);
+            var o = ds.Artists.Include("Albums").Include("MediaItems").SingleOrDefault(e => e.Id == id);
             return (o == null) ? null : Mapper.Map<ArtistWithDetail>(o);
         }
 
@@ -81,6 +81,40 @@ namespace Assigment8.Controllers
             ds.SaveChanges();
 
             return (addedItem == null) ? null : Mapper.Map<ArtistBase>(addedItem);
+        }
+
+        public ArtistWithDetail ArtistMediaItemAdd(MediaItemAdd newItem)
+        {
+            // Validate the associated item
+            var a = ds.Artists.Find(newItem.ArtistId);
+
+            if (a == null)
+            {
+                return null;
+            }
+            else
+            {
+                // Attempt to add the new item
+                var addedItem = new MediaItem();
+                ds.MediaItems.Add(addedItem);
+
+                addedItem.Caption = newItem.Caption;
+                addedItem.Artist = a;
+
+                // Handle the uploaded media item...
+
+                // First, extract the bytes from the HttpPostedFile object
+                byte[] mediaItemBytes = new byte[newItem.MediaUpload.ContentLength];
+                newItem.MediaUpload.InputStream.Read(mediaItemBytes, 0, newItem.MediaUpload.ContentLength);
+
+                // Then, configure the new object's properties
+                addedItem.Content = mediaItemBytes;
+                addedItem.ContentType = newItem.MediaUpload.ContentType;
+
+                ds.SaveChanges();
+
+                return (addedItem == null) ? null : Mapper.Map<ArtistWithDetail>(a);
+            }
         }
 
         public AlbumBase AlbumGetById(int? id)
