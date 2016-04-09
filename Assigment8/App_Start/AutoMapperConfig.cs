@@ -41,6 +41,7 @@ namespace Assigment8
             Mapper.CreateMap<Controllers.TrackAdd, Models.Track>();
             Mapper.CreateMap<Controllers.TrackAddForm, Models.Track>();
             Mapper.CreateMap<Models.Track, Controllers.TrackWithDetail>();
+            Mapper.CreateMap<Models.Track, Controllers.TrackClip>();
 
 #pragma warning restore CS0618
         }

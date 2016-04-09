@@ -140,6 +140,13 @@ namespace Assigment8.Controllers
             return (o == null) ? null : Mapper.Map<TrackBase>(o);
         }
 
+        public TrackClip TrackClipGetById(int id)
+        {
+            var o = ds.Tracks.Find(id);
+
+            return (o == null) ? null : Mapper.Map<TrackClip>(o);
+        }
+
         public TrackBase TrackAdd(TrackAdd newItem)
         {
             var o = ds.Tracks.Add(Mapper.Map<Track>(newItem));
@@ -149,6 +156,15 @@ namespace Assigment8.Controllers
                 var a = ds.Albums.Find(item);
                 o.Albums.Add(a);
             }
+
+            // Handle the uploaded audio...
+
+            // First, extract the bytes from the HttpPostedFile object
+            byte[] clipBytes = new byte[newItem.ClipUpload.ContentLength];
+            newItem.ClipUpload.InputStream.Read(clipBytes, 0, newItem.ClipUpload.ContentLength);
+
+            o.Clip = clipBytes;
+            o.ClipContentType = newItem.ClipUpload.ContentType;
 
             ds.SaveChanges();
 

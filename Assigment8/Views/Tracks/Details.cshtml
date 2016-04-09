@@ -43,6 +43,18 @@
                 @Html.DisplayFor(model => model.Genre)
             </dd>
 
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ClipUrl)
+            </dt>
+            
+            <dd>
+                <audio src="@Model.ClipUrl" controls="controls">
+                    Your browser does not support the
+                    <code>audio</code> element.
+                </audio>
+            </dd>
+
             <dt>
                 @Html.DisplayNameFor(model => model.Albums)
             </dt>

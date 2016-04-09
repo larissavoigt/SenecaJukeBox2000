@@ -14,7 +14,7 @@
 </div>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -42,6 +42,14 @@
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.Genre, Model.GenreList, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Genre, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ClipUpload, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.ClipUpload, new { type = "file", name = "Files" })
+                @Html.ValidationMessageFor(model => model.ClipUpload, "", new { @class = "text-danger" })
             </div>
         </div>
 

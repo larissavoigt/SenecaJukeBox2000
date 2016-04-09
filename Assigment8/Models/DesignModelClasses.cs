@@ -134,6 +134,11 @@ namespace Assigment8.Models
         public string Clerk { get; set; }
 
         public ICollection<Album> Albums { get; set; }
+
+        // Media item
+        public byte[] Clip { get; set; }
+        [StringLength(200)]
+        public string ClipContentType { get; set; }
     }
 
 }

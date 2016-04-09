@@ -8,8 +8,11 @@ using System.Web.Mvc;
 namespace Assigment8.Controllers
 {
 
-    public class TrackAdd
+    public class TrackBase 
     {
+        [Key]
+        public int Id { get; set; }
+
         [Required, StringLength(150)]
         public string Name { get; set; }
 
@@ -25,16 +28,19 @@ namespace Assigment8.Controllers
         public IEnumerable<int> AlbumIds { get; set; }
     }
 
-    public class TrackBase : TrackAdd
+    public class TrackAdd : TrackBase
     {
-        [Key]
-        public int Id { get; set; }
+        public HttpPostedFileBase ClipUpload { get; set; }
     }
 
-
-    public class TrackAddForm : TrackAdd
+    public class TrackAddForm : TrackBase
     {
         public SelectList GenreList { get; set; }
+
+        [Required]
+        [Display(Name = "Clip Upload")]
+        [DataType(DataType.Upload)]
+        public string ClipUpload { get; set; }
     }
 
     public class TrackWithDetail : TrackBase
@@ -56,5 +62,21 @@ namespace Assigment8.Controllers
             }
             return album.Name;
         }
+
+        [Display(Name = "Clip")]
+        public string ClipUrl
+        {
+            get
+            {
+                return $"/clip/{Id}";
+            }
+        }
+    }
+
+    public class TrackClip
+    {
+        public int Id { get; set; }
+        public string ClipContentType { get; set; }
+        public byte[] Clip { get; set; }
     }
 }
