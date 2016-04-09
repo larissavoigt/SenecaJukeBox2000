@@ -57,5 +57,7 @@ namespace Assigment8.Controllers
         public int Id { get; set; }
         public string ContentType { get; set; }
         public byte[] Content { get; set; }
+        public string StringId { get; set; }
+        public string Caption { get; set; }
     }
 }

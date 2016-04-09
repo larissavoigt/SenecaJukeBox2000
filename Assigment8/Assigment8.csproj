@@ -184,6 +184,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\Manager.cs" />
+    <Compile Include="Controllers\MediaItemsController.cs" />
     <Compile Include="Controllers\MediaItem_vm.cs" />
     <Compile Include="Controllers\RoleClaim_vm.cs" />
     <Compile Include="Controllers\TrackClipsController.cs" />
@@ -283,6 +284,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\MediaItems\" />
     <Folder Include="Views\MediaItem_vm\" />
     <Folder Include="Views\TrackClips\" />
   </ItemGroup>

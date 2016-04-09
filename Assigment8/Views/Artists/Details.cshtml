@@ -77,14 +77,40 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.MediaItems)
+                Media Items
             </dt>
 
             <dd>
                 <ul class="list-unstyled">
                     @foreach (var item in Model.MediaItems)
                     {
-                        @item.ContentType
+                        switch (item.ContentType)
+                        {
+                            case "audio/mp3":
+                                <li>
+                                    <audio src="/mediaitem/@item.StringId" controls="controls">
+                                        Your browser does not support the
+                                        <code>audio</code> element.
+                                    </audio>
+                                </li>
+                                break;
+                            case "image/jpeg":
+                            case "image/png":
+                            case "image/gif":
+                                <li>
+                                    <div class="thumbnail">
+                                        <img src="/mediaitem/@item.StringId" />
+                                        <div class="caption text-center">
+                                            @item.Caption
+                                        </div>
+                                    </div>
+                                </li>
+                               
+                                break;
+                            default:
+                                <li>Download @item.ContentType <a href="/mediaitem/@item.StringId" target="_blank">here</a></li>
+                                break;
+                        }
                     }
                 </ul>
             </dd>

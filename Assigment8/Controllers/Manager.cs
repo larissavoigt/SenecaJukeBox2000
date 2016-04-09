@@ -217,6 +217,13 @@ namespace Assigment8.Controllers
             return (o == null) ? null : Mapper.Map<TrackWithDetail>(o);
         }
 
+        public MediaItemContent ArtistMediaItemGetById(string stringId)
+        {
+            var o = ds.MediaItems.SingleOrDefault(p => p.StringId == stringId);
+
+            return (o == null) ? null : Mapper.Map<MediaItemContent>(o);
+        }
+
     }
 
     // New "UserAccount" class for the authenticated user
