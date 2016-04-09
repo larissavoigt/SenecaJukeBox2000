@@ -44,10 +44,14 @@ namespace Assigment8.Controllers
         public AlbumWithDetail()
         {
             Artists = new List<ArtistBase>();
+            Tracks = new List<TrackBase>();
         }
 
         [Display(Name = "Artist")]
         public IEnumerable<ArtistBase> Artists { get; set; }
+
+        [Display(Name = "Tracks")]
+        public IEnumerable<TrackBase> Tracks { get; set; }
     }
 
 

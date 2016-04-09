@@ -44,5 +44,15 @@ namespace Assigment8.Controllers
 
         [Display(Name = "Album")]
         public ICollection<AlbumBase> Albums { get; set; }
+
+        public string AlbumName()
+        {
+            var album = this.Albums.FirstOrDefault();
+            if (album == null)
+            {
+                return "-";
+            }
+            return album.Name;
+        }
     }
 }

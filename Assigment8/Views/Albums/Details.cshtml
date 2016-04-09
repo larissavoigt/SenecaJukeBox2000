@@ -56,6 +56,19 @@
             </dd>
 
             <dt>
+                @Html.DisplayNameFor(model => model.Tracks)
+            </dt>
+
+            <dd>
+                <ol class="list-unstyled">
+                    @foreach (var item in Model.Tracks)
+                    {
+                        <li>@Html.ActionLink(item.Name, "Details", "Tracks", new { id = item.Id }, null)</li>
+                    }
+                </ol>
+            </dd>
+
+            <dt>
                 @Html.DisplayNameFor(model => model.Description)
             </dt>
 
