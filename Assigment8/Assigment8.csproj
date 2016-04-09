@@ -185,6 +185,8 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\Manager.cs" />
     <Compile Include="Controllers\RoleClaim_vm.cs" />
+    <Compile Include="Controllers\TracksController.cs" />
+    <Compile Include="Controllers\Track_vm.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -272,6 +274,9 @@
     <Content Include="Views\Albums\Create.cshtml" />
     <Content Include="Views\Albums\Details.cshtml" />
     <Content Include="Views\Albums\Index.cshtml" />
+    <Content Include="Views\Tracks\Create.cshtml" />
+    <Content Include="Views\Tracks\Details.cshtml" />
+    <Content Include="Views\Tracks\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

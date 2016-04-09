@@ -228,6 +228,96 @@ namespace Assigment8.Migrations
             albums.ForEach(a => a.Coordinator = coordinators[rnd.Next(coordinators.Count)]); // add random coordinator
             albums.ForEach(a => context.Albums.AddOrUpdate(r => r.Name, a));
 
+            var tracks = new List<Track> {
+                new Track
+                {
+                    Name = "Hello",
+                    Genre = "Pop",
+                    Composers = "Adele Adkins, Greg Kurstin"
+                },
+
+                new Track
+                {
+                    Name = "What's My Name?",
+                    Genre = "Hip Hop",
+                    Composers = "Mikkel S. Eriksen, Tor Erik Hermansen"
+                },
+
+                new Track
+                {
+                    Name = "Bohemian Rhapsody",
+                    Genre = "Rock",
+                    Composers = "Freddie Mercury"
+                },
+
+                new Track
+                {
+                    Name = "Under Pressure",
+                    Genre = "Rock",
+                    Composers = "Queen, David Bowie"
+                },
+
+                new Track
+                {
+                    Name = "Heroes",
+                    Genre = "Rock",
+                    Composers = "David Bowie, Brian Eno"
+                },
+
+                new Track
+                {
+                    Name = "It's All Coming Back To Me Now",
+                    Genre = "Pop",
+                    Composers = "Jim Steinman"
+                },
+
+                new Track
+                {
+                    Name = "Because You Loved Me",
+                    Genre = "Pop",
+                    Composers = "Diane Warren"
+                },
+
+                new Track
+                {
+                    Name = "The Reason",
+                    Genre = "Pop",
+                    Composers = "Carole King, Mark Hudson"
+                },
+
+                new Track
+                {
+                    Name = "Immortality",
+                    Genre = "Pop",
+                    Composers = "Barry Gibb, Robin Gibb"
+                },
+
+                new Track
+                {
+                    Name = "My Heart Will Go On",
+                    Genre = "Pop",
+                    Composers = "James Horner, Will Jennings"
+                },
+
+                new Track
+                {
+                    Name = "Sorrow",
+                    Genre = "Rock",
+                    Composers = "Bob Feldman, Jerry Goldstein"
+                },
+
+                new Track
+                {
+                    Name = "Just Dance",
+                    Genre = "Pop",
+                    Composers = "Lady Gaga, Nadir RedOne"
+                },
+
+            };
+
+            tracks.ForEach(t => t.Clerk = clerks[rnd.Next(clerks.Count)]); // add random clerk
+            tracks.ForEach(t => context.Tracks.AddOrUpdate(r => r.Name, t));
+
             context.SaveChanges();
 
             // Artists - Albums association
@@ -239,6 +329,17 @@ namespace Assigment8.Migrations
             AddOrUpdateArtistAlbums(context, "David Bowie", "Pin Ups");
             AddOrUpdateArtistAlbums(context, "Rihanna", "What's My Name?");
             AddOrUpdateArtistAlbums(context, "Drake", "What's My Name?");
+
+            //Albums - Tracks association
+            AddOrUpdateAlbumTracks(context, "What's My Name?", "What's My Name?");
+            AddOrUpdateAlbumTracks(context, "Hot Space", "Under Pressure");
+            AddOrUpdateAlbumTracks(context, "Falling into You", "It's All Coming Back To Me Now");
+            AddOrUpdateAlbumTracks(context, "Falling into You", "Because You Loved Me");
+            AddOrUpdateAlbumTracks(context, "Let's Talk About Love", "The Reason");
+            AddOrUpdateAlbumTracks(context, "Let's Talk About Love", "Immortality");
+            AddOrUpdateAlbumTracks(context, "Let's Talk About Love", "My Heart Will Go On");
+            AddOrUpdateAlbumTracks(context, "Pin Ups", "Sorrow");
+            AddOrUpdateAlbumTracks(context, "The Fame", "Just Dance");
         }
 
         void AddOrUpdateArtistAlbums(Assigment8.Models.ApplicationDbContext context, string artistName, string albumName)
@@ -252,6 +353,16 @@ namespace Assigment8.Migrations
 
         }
 
+        void AddOrUpdateAlbumTracks(Assigment8.Models.ApplicationDbContext context, string albumName, string trackName)
+        {
+            var album = context.Albums.SingleOrDefault(a => a.Name == albumName);
+            var track = album.Tracks.SingleOrDefault(t => t.Name == trackName);
+            if (track == null)
+            {
+                album.Tracks.Add(context.Tracks.Single(t => t.Name == trackName));
+            }
+
+        }
 
         void AddOrUpdateUser(Assigment8.Models.ApplicationDbContext context, string email, List<string> roles)
         {

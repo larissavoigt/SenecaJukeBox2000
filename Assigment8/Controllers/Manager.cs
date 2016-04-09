@@ -124,6 +124,36 @@ namespace Assigment8.Controllers
             return Mapper.Map<IEnumerable<GenreBase>>(ds.Genres.OrderBy(a => a.Name));
         }
 
+        public IEnumerable<TrackBase> TrackGetAll()
+        {
+            return Mapper.Map<IEnumerable<TrackBase>>(ds.Tracks.OrderBy(a => a.Name));
+        }
+
+        public TrackBase TrackGetById(int? id)
+        {
+            var o = ds.Tracks.Find(id);
+            return (o == null) ? null : Mapper.Map<TrackBase>(o);
+        }
+
+        public TrackBase TrackAdd(TrackAdd newItem)
+        {
+            var addedItem = ds.Tracks.Add(Mapper.Map<Track>(newItem));
+            ds.SaveChanges();
+            return (addedItem == null) ? null : Mapper.Map<TrackBase>(addedItem);
+        }
+
+        public IEnumerable<TrackWithDetail> TrackGetAllWithDetail()
+        {
+            return Mapper.Map<IEnumerable<TrackWithDetail>>
+                (ds.Tracks.Include("Albums").OrderBy(a => a.Name));
+        }
+
+        public TrackWithDetail TrackGetByIdWithDetail(int id)
+        {
+            var o = ds.Tracks.Include("Albums").SingleOrDefault(e => e.Id == id);
+            return (o == null) ? null : Mapper.Map<TrackWithDetail>(o);
+        }
+
     }
 
     // New "UserAccount" class for the authenticated user

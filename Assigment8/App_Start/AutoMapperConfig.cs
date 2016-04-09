@@ -36,6 +36,12 @@ namespace Assigment8
             // Genres
             Mapper.CreateMap<Models.Genre, Controllers.GenreBase>();
 
+            // Tracks
+            Mapper.CreateMap<Models.Track, Controllers.TrackBase>();
+            Mapper.CreateMap<Controllers.TrackAdd, Models.Track>();
+            Mapper.CreateMap<Controllers.TrackAddForm, Models.Track>();
+            Mapper.CreateMap<Models.Track, Controllers.TrackWithDetail>();
+
 #pragma warning restore CS0618
         }
     }
