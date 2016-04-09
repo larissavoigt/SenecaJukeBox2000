@@ -191,7 +191,8 @@ namespace Assigment8.Migrations
                     Name = "The Fame",
                     Genre = "Pop",
                     UrlAlbum = "http://www.ladygaga.com/sites/g/files/g20001281/f/styles/300x300/public/201306/00602517891388.jpg?itok=S3SusKRe",
-                    ReleaseDate = new System.DateTime(2008, 8, 19)
+                    ReleaseDate = new System.DateTime(2008, 8, 19),
+                    Description = "The Fame is the debut studio album by American singer Lady Gaga. It was released on August 19, 2008 through Interscope Records. After joining Kon Live Distribution and Cherrytree Records in 2008, Gaga began working on the album with different producers, primarily RedOne, Martin Kierszenbaum and Rob Fusari. Musically, The Fame is a synthpop and dance-pop album that has influences of pop music from the 1980s. Lyrically, the album visualizes Gaga's love of fame in general while also dealing with subjects such as love, sex, money, drugs and sexual identity. Promotion was primarily through The Fame Ball Tour and multiple television appearances. The Fame was included as a bonus disc on the deluxe edition of the extended play, The Fame Monster (2009).</p>"
                 },
 
                 new Album
@@ -199,7 +200,8 @@ namespace Assigment8.Migrations
                     Name = "Hot Space",
                     Genre = "Rock",
                     UrlAlbum = "https://upload.wikimedia.org/wikipedia/en/3/3c/Queen_Hot_Space.png",
-                    ReleaseDate = new System.DateTime(1982, 5, 21)
+                    ReleaseDate = new System.DateTime(1982, 5, 21),
+                    Description = "<p>Hot Space is the tenth studio album by British rock band <strong>Queen</strong>, released in May 1982. Marking a notable shift in direction from their earlier work, they employed many elements of disco, funk, rhythm and blues, dance and pop music on the album.</p>"
                 },
 
                 new Album
@@ -207,7 +209,8 @@ namespace Assigment8.Migrations
                     Name = "Falling into You",
                     Genre = "Pop",
                     UrlAlbum = "https://ukutabs.com/uploads/2012/09/Falling-Into-You.jpg",
-                    ReleaseDate = new System.DateTime(1996, 3, 8)
+                    ReleaseDate = new System.DateTime(1996, 3, 8),
+                    Description = "<p>Falling into You is the fourth English-language studio album by Canadian singer <strong>Celine Dion</strong>, released on 8 March 1996, by Columbia/Epic Records.</p>"
                 },
 
                 new Album
@@ -215,7 +218,8 @@ namespace Assigment8.Migrations
                     Name = "Let's Talk About Love",
                     Genre = "Pop",
                     UrlAlbum = "https://ukutabs.com/uploads/2013/05/Lets-Talk-About-Love.jpg",
-                    ReleaseDate = new System.DateTime(1997, 11, 14)
+                    ReleaseDate = new System.DateTime(1997, 11, 14),
+                    Description = "<p>Let's Talk About Love is the fifth English-language studio album by Canadian singer <strong>Celine Dion</strong>, released on 14 November 1997, by Columbia/Epic Records.</p>"
                 },
 
                 new Album
@@ -223,7 +227,8 @@ namespace Assigment8.Migrations
                     Name = "Pin Ups",
                     Genre = "Rock",
                     UrlAlbum = "https://upload.wikimedia.org/wikipedia/en/b/be/PinUps.jpg",
-                    ReleaseDate = new System.DateTime(1973, 10, 19)
+                    ReleaseDate = new System.DateTime(1973, 10, 19),
+                    Description = "<p>Pin Ups is the seventh album by <strong>David Bowie</strong>, containing cover versions of songs, released in 1973 on RCA Records. The cover image shows Bowie with <em>supermodel Twiggy</em>."
                 },
 
                 new Album
@@ -231,7 +236,8 @@ namespace Assigment8.Migrations
                     Name = "What's My Name?",
                     Genre = "R&B",
                     UrlAlbum = "http://music-video-buzz.com/wp-content/uploads/2011/03/rihanna-whats_my_name-feat-drake-fanmade1-500x500-300x300.png",
-                    ReleaseDate = new System.DateTime(2010, 10, 26)
+                    ReleaseDate = new System.DateTime(2010, 10, 26),
+                    Description = "<p>Featuring guest vocals from Canadian rapper <strong>Drake</strong>, the song was released as the second single from Loud on October 29, 2010 through Def Jam Recordings. The electro-R&B song was produced by the Norwegian production duo StarGate, and was written by the duo along with Ester Dean, Traci Hale, and Drake. Lyrically, it incorporates themes of sexual intercourse and romance.</p>"
                 },
 
             };
